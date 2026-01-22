@@ -19,5 +19,5 @@ def return_active_users(users_array)
   .map { |user| user[:email].strip.downcase }
 end
 
-# Test the code:
+# Inspect the output:
 p return_active_users(my_users)
