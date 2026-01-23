@@ -29,5 +29,6 @@ def first_failed_request(requests)
   requests.find { |request| request[:status] == "failed" }
 end
 
+# Inspect the output:
 p any_failed?(my_requests)
 p first_failed_request(my_requests)
