@@ -14,15 +14,10 @@ my_users = [
 ]
 
 def return_active_users(users_array)
-  active_users = users_array.select do |user|
-    true if user[:active]== true
-  end
-
-  user_email = active_users.map do |user|
-    user[:email].strip.downcase
-  end
+  active_users = users_array
+  .select { |user| user[:active] == true }
+  .map { |user| user[:email].strip.downcase }
 end
 
-# Test the code:
+# Inspect the output:
 p return_active_users(my_users)
-
