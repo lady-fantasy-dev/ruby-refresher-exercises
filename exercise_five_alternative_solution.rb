@@ -17,10 +17,12 @@ my_requests = [
 ]
 
 def find_newest_successful_request(requests)
-  successful = requests.select { |req| req[:status] == "success" }
-  return nil if successful.empty?
-
-  successful.max_by { |successful_req| successful_req[:created_at] }
+  latest = nil
+  requests.each do |req|
+    next unless req[:status] == "success"
+    latest = req if latest.nil? || req[:created_at] > latest[:created_at]
+  end
+  latest
 end
 
 # Inspect the output:
